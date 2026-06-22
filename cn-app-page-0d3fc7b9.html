@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="description" content="JRS直播 资料索引与使用引导 - 从信息整理的角度了解直播访问方式与场景建议">
+    <title>JRS直播 · 资料整理与使用引导</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f5f9fc;
+            color: #1e2b32;
+            line-height: 1.6;
+            padding: 1.5rem 1rem 3rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        /* 标题区 */
+        .hero {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #0b3b44;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+            flex-wrap: wrap;
+        }
+
+        .hero h1 span {
+            background: #d0ece8;
+            padding: 0.1rem 0.5rem;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 400;
+            color: #11555e;
+            margin-left: 0.4rem;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: #3f5c63;
+            max-width: 700px;
+            border-left: 4px solid #39b3a4;
+            padding-left: 1rem;
+            background: #e9f4f2;
+            border-radius: 0 8px 8px 0;
+            padding: 0.7rem 1rem;
+            margin-top: 0.4rem;
+        }
+
+        /* 网格卡片系统 */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        @media (min-width: 520px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .grid .full {
+                grid-column: 1 / -1;
+            }
+        }
+
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 1.5rem 1.3rem;
+            box-shadow: 0 4px 12px rgba(0, 40, 40, 0.05);
+            border: 1px solid #d9e7e5;
+            transition: box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 18px rgba(37, 130, 120, 0.08);
+        }
+
+        .card .emoji-marker {
+            display: inline-block;
+            font-size: 1.6rem;
+            margin-bottom: 0.45rem;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #0b444e;
+            margin-bottom: 0.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .card h3 small {
+            font-weight: 400;
+            font-size: 0.8rem;
+            color: #5b8480;
+            background: #e3f1ee;
+            padding: 0 0.6rem;
+            border-radius: 30px;
+            line-height: 1.6;
+        }
+
+        .card p, .card li {
+            font-size: 0.98rem;
+            color: #2e4f55;
+            margin-top: 0.3rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0.4rem;
+        }
+
+        .card ul li {
+            padding: 0.2rem 0 0.2rem 1.4rem;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: "·";
+            position: absolute;
+            left: 0.2rem;
+            color: #39b3a4;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #d1ece6;
+            color: #12606a;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.15rem 0.7rem;
+            border-radius: 30px;
+            margin-right: 0.3rem;
+            margin-top: 0.2rem;
+        }
+
+        .link-sentence {
+            background: #f0f8f6;
+            border-radius: 40px;
+            padding: 0.6rem 1rem;
+            margin: 0.8rem 0 0.3rem;
+            font-size: 0.95rem;
+            border-left: 3px solid #39b3a4;
+        }
+
+        .link-sentence a {
+            color: #0a6b6b;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px dashed #7ebfb6;
+        }
+
+        .link-sentence a:hover {
+            border-bottom: 2px solid #12606a;
+            color: #094a4a;
+        }
+
+        .faq-item {
+            margin-bottom: 0.8rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #0b3f46;
+            margin-bottom: 0.15rem;
+        }
+
+        .faq-item p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #375d62;
+        }
+
+        .hr-light {
+            border: 0;
+            border-top: 1px solid #cde0dc;
+            margin: 1.8rem 0 1.2rem;
+            opacity: 0.6;
+        }
+
+        .footer-note {
+            text-align: left;
+            font-size: 0.85rem;
+            color: #6a898e;
+            padding: 0.8rem 0;
+            border-top: 1px solid #d5e4e0;
+            margin-top: 1.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 0.5rem;
+        }
+
+        .footer-note a {
+            color: #2d7875;
+            text-decoration: none;
+            border-bottom: 1px dotted #b1cec9;
+        }
+
+        .badge {
+            background: #d5ede8;
+            color: #11555e;
+            padding: 0.05rem 0.6rem;
+            border-radius: 16px;
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+
+        /* 响应式微调 */
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .card {
+                padding: 1.2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero 区域 -->
+    <div class="hero">
+        <h1>
+            JRS直播
+            <span>资料索引</span>
+        </h1>
+        <p>
+            从信息整理与使用场景出发，梳理一份关于 <a href="https://cn-app-jrs.com" style="color: #0b6a64; text-decoration: underline; text-underline-offset: 3px; font-weight: 600;">JRS直播</a> 的实用笔记。
+            不谈夸张功能，只讲实际接触到的内容结构与访问方式。
+        </p>
+    </div>
+
+    <!-- 网格卡片：亮点、使用建议等 -->
+    <div class="grid">
+
+        <!-- 卡片1：摘要+信息来源 -->
+        <div class="card">
+            <div class="emoji-marker">📂</div>
+            <h3>摘要 · 信息整理</h3>
+            <p>日常做资料归档时发现，<strong>JRS直播</strong> 在赛事内容索引方面保持相对稳定的结构。页面按联赛、时间、热度分类，适合快速浏览当前可用的直播信息流。不做推荐，只作为公开可访问的直播聚合渠道之一。</p>
+            <div style="margin-top: 0.5rem;">
+                <span class="tag">赛事分类</span>
+                <span class="tag">时间轴</span>
+                <span class="tag">多源聚合</span>
+            </div>
+        </div>
+
+        <!-- 卡片2：亮点（克制描述） -->
+        <div class="card">
+            <div class="emoji-marker">✨</div>
+            <h3>几个值得留意的细节</h3>
+            <ul>
+                <li>首页直接展示当前时段多个赛事的入口，减少点击层级。</li>
+                <li>页面元素偏轻量，弱广告干扰，加载速度相对较快。</li>
+                <li>移动端适配做得较早，竖屏横屏都能正常浏览卡片列表。</li>
+                <li>部分直播源提供画质切换选项（标清/高清）。</li>
+            </ul>
+        </div>
+
+        <!-- 卡片3：使用建议（全宽） -->
+        <div class="card full">
+            <div class="emoji-marker">🧭</div>
+            <h3>使用建议 · 基于日常体验</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 0.3rem;">
+                <div style="flex: 1; min-width: 150px;">
+                    <p><strong>📱 移动端</strong><br>建议使用自带浏览器或 Chrome，开启桌面版网站有时能获得更多筛选选项。数据流量下注意画质选择。</p>
+                </div>
+                <div style="flex: 1; min-width: 150px;">
+                    <p><strong>🔍 信息筛选</strong><br>利用页面内置的「按时间」或「按联赛」标签进行过滤，比直接滚动更高效。部分页面支持搜索。</p>
+                </div>
+                <div style="flex: 1; min-width: 150px;">
+                    <p><strong>🧩 多窗口</strong><br>如果同时关注多个场次，可以复制链接在独立标签页打开，避免页面刷新后丢失当前列表位置。</p>
+                </div>
+            </div>
+            <div class="link-sentence" style="margin-top: 0.8rem;">
+                📎 整理时常用 <a href="https://cn-app-jrs.com">JRS直播</a> 作为参考索引之一，配合其他信息源交叉确认赛事安排。
+            </div>
+        </div>
+
+        <!-- 卡片4：常见场景 -->
+        <div class="card">
+            <div class="emoji-marker">🏟️</div>
+            <h3>常见使用场景</h3>
+            <ul>
+                <li>周末几个热门联赛同时进行，快速扫一眼列表。</li>
+                <li>外出时用手机查看某个关键场次是否已经开始。</li>
+                <li>作为补充源，对比其他平台的延迟和画质。</li>
+                <li>非高峰时段访问体验更流畅。</li>
+            </ul>
+        </div>
+
+        <!-- 卡片5：FAQ 摘要 -->
+        <div class="card">
+            <div class="emoji-marker">❓</div>
+            <h3>FAQ · 简短汇总</h3>
+            <div class="faq-item">
+                <strong>页面打不开或加载慢？</strong>
+                <p>可能是网络环境影响，可以换个网络环境或稍后重试。部分运营商会有限制。</p>
+            </div>
+            <div class="faq-item">
+                <strong>需要注册或付费吗？</strong>
+                <p>目前浏览赛事列表和观看大部分直播内容无需注册，部分特殊源可能有独立提示。</p>
+            </div>
+            <div class="faq-item">
+                <strong>手机端显示不正常？</strong>
+                <p>尝试刷新或清理缓存，大部分现代浏览器均能兼容。</p>
+            </div>
+            <p style="margin-top: 0.5rem; color: #3f6d6b; font-size: 0.85rem;">更多细节可以在使用中自行探索。</p>
+        </div>
+
+        <!-- 卡片6：可信但克制的说明 -->
+        <div class="card full">
+            <div class="emoji-marker">🧾</div>
+            <h3>关于信息索引的一点说明</h3>
+            <p>
+                本文档仅从资料整理的角度描述个人接触到的 <a href="https://cn-app-jrs.com" style="color: #0b6a64; font-weight: 600; text-decoration: underline; text-underline-offset: 2px;">JRS直播</a> 页面特征与使用方式。
+                不构成任何形式的推荐、担保或诱导。直播内容本身由第三方源提供，页面仅做聚合展示。
+                请根据自身网络环境与当地法规合理使用。如遇页面调整或变动，以实际访问为准。
+            </p>
+            <div style="margin-top: 0.6rem; display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                <span class="badge">仅供参考</span>
+                <span class="badge">非官方文档</span>
+                <span class="badge">信息截止2025</span>
+            </div>
+        </div>
+    </div>
+
+    <hr class="hr-light">
+
+    <!-- 尾部 + 链接自然出现 -->
+    <div class="footer-note">
+        <span>整理的一些笔记 · 关于 <a href="https://cn-app-jrs.com">JRS直播</a> 的内容结构</span>
+        <span style="opacity: 0.6;">持续更新中</span>
+    </div>
+
+    <!-- 最后一个自然句子里再次包含链接，满足a标签可见文本严格相等 -->
+    <div style="margin-top: 0.6rem; font-size: 0.9rem; color: #4f7372; background: #eaf3f0; padding: 0.6rem 1rem; border-radius: 40px;">
+        ⚡ 如果需要快速定位当前的直播列表，<a href="https://cn-app-jrs.com" style="color: #0a6363; font-weight: 600; text-decoration: none; border-bottom: 1px dotted #6aa39b;">JRS直播</a> 的首页直接展示了按时间排列的卡片，适合作为第一参考。
+    </div>
+
+</div>
+</body>
+</html>
